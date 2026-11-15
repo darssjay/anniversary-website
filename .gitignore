@@ -1,0 +1,14 @@
+.git/
+*-backup.html
+*-before-*.html
+*-before-*.js
+quiz-backup.html
+quiz-before-*.html
+quiz-images.zip
+cat%20gif.zip
+cat-preview*.jpg
+cat-test.jpg
+test-image.png
+
+cat-[1-6].jpg
+cats/intro-cat-last.png

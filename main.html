@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f2ec">
+<meta name="description" content="A little collection of memories for our first anniversary.">
+<title>Our First Anniversary — Darwin & Cassandra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f2ec;--paper2:#eee5dc;--ink:#292323;--muted:#766b67;
+  --rose:#b77b80;--wine:#783d4b;--line:rgba(74,49,48,.16);
+  --white:#fffdf9;--shadow:0 18px 55px rgba(65,39,38,.09);
+  --serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:82px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+button{font:inherit}
+a{color:inherit;text-decoration:none}
+::selection{background:#d9b8b5;color:#292323}
+.progress{position:fixed;z-index:30;top:0;left:0;height:3px;width:0;background:var(--wine)}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(18px,5vw,72px);background:rgba(247,242,236,.88);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:.3s}
+.nav.scrolled{border-color:var(--line);padding-top:14px;padding-bottom:14px}
+.brand{font-size:11px;letter-spacing:.18em;font-weight:700}
+.navlinks{display:flex;gap:25px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.navlinks a:hover{color:var(--wine)}
+.menu{display:none;border:0;background:none;color:var(--ink);font-size:22px}
+.hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:5vw;padding:130px clamp(22px,8vw,120px) 75px;position:relative;overflow:hidden}
+.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--wine);font-weight:700}
+.hero h1{font:500 clamp(52px,8vw,112px)/.98 var(--serif);letter-spacing:-.055em;margin:24px 0 22px;max-width:720px}
+.hero h1 em{font-weight:500;color:var(--wine)}
+.hero-copy{max-width:430px;color:var(--muted);font-size:14px;line-height:1.9}
+.hero-meta{display:flex;align-items:center;gap:18px;margin-top:38px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.line{width:42px;height:1px;background:var(--rose)}
+.hero-visual{height:min(70vh,650px);min-height:400px;position:relative}
+.hero-frame{position:absolute;inset:0 8% 5% 8%;background:linear-gradient(145deg,#e8d8d1,#c9a9a3);box-shadow:var(--shadow);overflow:hidden}
+.hero-frame:before{content:"";position:absolute;inset:7%;border:1px solid rgba(255,255,255,.6);z-index:1;pointer-events:none}.hero-photo img{width:100%;height:100%;object-fit:cover;display:block}.hero-photo:after{content:"D + C";position:absolute;bottom:12%;left:0;right:0;text-align:center;font:italic 42px var(--serif);color:rgba(255,255,255,.9);letter-spacing:.08em;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+
+.hero-note{position:absolute;right:0;bottom:0;background:var(--white);padding:22px 25px;box-shadow:var(--shadow);font:italic 16px var(--serif);color:var(--wine);max-width:210px}
+.hero-index{position:absolute;left:0;top:14%;writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:.2em;color:var(--muted)}
+
+/* FLOATING CAT MEME - OUR STORY */
+#story{position:relative;overflow:hidden}
+#story .section-head,#story .timeline{position:relative;z-index:1}
+#story .story-cat-sticker{
+  position:absolute;
+  right:5%;
+  bottom:22px;
+  width:clamp(65px,10vw,115px);
+  height:auto;
+  opacity:.72;
+  pointer-events:none;
+  z-index:0;
+  animation:storyCatFloat 6s ease-in-out infinite;
+}
+@keyframes storyCatFloat{
+  0%,100%{transform:translateY(0) rotate(-4deg)}
+  50%{transform:translateY(-12px) rotate(4deg)}
+}
+@media(max-width:760px){
+  #story .story-cat-sticker{width:66px;right:12px;bottom:12px;opacity:.58}
+}
+\n.section{padding:110px clamp(22px,8vw,120px)}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:48px}
+.section-head h2{font:500 clamp(36px,5vw,64px)/1.05 var(--serif);letter-spacing:-.035em;margin:12px 0 0}
+.section-head p{max-width:310px;color:var(--muted);font-size:12px;line-height:1.8;margin:0}
+.intro-band{background:var(--wine);color:#f8eee8;padding:85px clamp(22px,8vw,120px);text-align:center}
+.intro-band p{font:italic clamp(26px,4vw,48px)/1.35 var(--serif);max-width:850px;margin:0 auto}
+.intro-band span{display:block;margin-top:24px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#e5c9c4}
+.timeline{max-width:850px;margin:auto;border-left:1px solid var(--line);padding-left:34px;display:grid;gap:38px}
+.moment{position:relative;display:grid;grid-template-columns:130px 1fr;gap:25px}
+.moment:before{content:"";position:absolute;left:-40px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--rose);border:4px solid var(--paper)}
+.moment time{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);padding-top:5px}
+.moment h3{font:500 25px var(--serif);margin:0 0 8px}
+.moment p{font-size:12px;line-height:1.8;color:var(--muted);margin:0;max-width:520px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.photo{min-height:260px;aspect-ratio:4/5;background:linear-gradient(145deg,#e9dcd4,#d8c1b9);position:relative;overflow:hidden;cursor:pointer}
+.photo:nth-child(2),.photo:nth-child(5){transform:translateY(28px)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
+.photo:hover img{transform:scale(1.045)}
+.photo .placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:rgba(75,48,48,.7);font:italic 22px var(--serif)}
+.photo .caption{position:absolute;left:0;right:0;bottom:0;padding:35px 16px 14px;color:white;background:linear-gradient(transparent,rgba(25,18,18,.55));font-size:10px;letter-spacing:.1em}
+.reasons{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.reason{padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:160px}
+.reason small{font-size:9px;letter-spacing:.18em;color:var(--wine)}
+.reason h3{font:italic 25px var(--serif);font-weight:500;margin:17px 0 0}
+.openwhen{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.open-card{background:var(--white);border:1px solid var(--line);padding:24px;text-align:left;cursor:pointer;transition:.25s;min-height:110px}
+.open-card:hover{background:var(--paper2);transform:translateY(-2px)}
+.open-card span{display:block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--wine);margin-bottom:12px}
+.open-card strong{font:italic 22px var(--serif);font-weight:500}
+.open-message{display:none;margin-top:18px;padding:25px;background:var(--paper2);font:italic 20px/1.6 var(--serif);color:var(--wine)}
+.open-message.show{display:block}
+.letter-wrap{background:var(--paper2);text-align:center;padding:100px 22px}
+.letter-wrap h2{font:500 clamp(38px,5vw,65px) var(--serif);margin:15px 0}
+.letter-wrap p{color:var(--muted);font-size:12px;line-height:1.9;max-width:480px;margin:0 auto 28px}
+.btn{border:1px solid var(--wine);background:var(--wine);color:white;padding:14px 24px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.btn:hover{background:transparent;color:var(--wine)}
+.letter{display:none;max-width:600px;margin:30px auto 0;background:var(--white);padding:35px;text-align:left;box-shadow:var(--shadow);font:16px/1.9 var(--serif);color:#594447}
+.letter.show{display:block}
+.counter{display:flex;justify-content:center;gap:clamp(18px,5vw,65px);margin-top:38px}
+.count{text-align:center}
+.count strong{display:block;font:500 clamp(30px,5vw,55px) var(--serif);color:var(--wine)}
+.count span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.footer{padding:55px 22px;text-align:center;background:#292323;color:#f7f2ec}
+.footer .names{font:italic 35px var(--serif);color:#d7b3ae}
+.footer p{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#b9aaa5;margin-top:15px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:none}
+.lightbox{display:none;position:fixed;z-index:50;inset:0;background:rgba(24,18,18,.94);align-items:center;justify-content:center;padding:20px}
+.lightbox.show{display:flex}
+.lightbox img{max-width:95%;max-height:88%;object-fit:contain}
+.lightbox button{position:absolute;top:20px;right:22px;background:none;border:0;color:white;font-size:30px}
+.music{position:fixed;z-index:22;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--wine);cursor:pointer;box-shadow:var(--shadow)}
+
+/* Playful cat details — kept subtle so the editorial layout stays elegant */
+.cat-stamp{display:inline-flex;align-items:center;gap:8px;color:var(--wine);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.cat-stamp .cat-face{font-size:22px;letter-spacing:0;filter:grayscale(.15)}
+.cat-doodle{position:absolute;z-index:2;pointer-events:none;font-size:clamp(30px,4vw,48px);filter:drop-shadow(0 7px 10px rgba(65,39,38,.12));animation:catBob 3.8s ease-in-out infinite}
+.cat-doodle.one{right:2%;top:7%;transform:rotate(10deg)}
+.cat-doodle.two{left:1%;bottom:5%;font-size:32px;animation-delay:-1.4s}
+@keyframes catBob{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -8px;rotate:4deg}}
+.cat-note{background:#f1e5df;border:1px dashed rgba(120,61,75,.3);padding:26px 28px;display:flex;align-items:center;gap:18px;margin-top:38px;position:relative}
+.cat-note .cat-icon{font-size:42px;flex:none}
+.cat-note p{margin:0;color:#60474a;font:italic 18px/1.55 var(--serif)}
+.cat-note small{display:block;margin-top:8px;font:700 9px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
+.playful-section{background:#f2e9e2}
+.meme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.meme-card{background:var(--white);border:1px solid var(--line);padding:25px 22px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s,box-shadow .25s}
+.meme-card:hover{transform:translateY(-5px) rotate(-.5deg);box-shadow:var(--shadow)}
+.meme-card .meme-emoji{font-size:34px}
+.meme-card p{font:italic 21px/1.35 var(--serif);color:var(--wine);margin:18px 0 12px}
+.meme-card small{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.cat-companion{position:fixed;z-index:24;left:18px;bottom:18px;width:54px;height:54px;border:1px solid rgba(120,61,75,.22);border-radius:50%;background:var(--white);box-shadow:var(--shadow);font-size:27px;cursor:pointer;transition:transform .2s}
+.cat-companion:hover{transform:translateY(-4px) rotate(-8deg)}
+.cat-bubble{position:fixed;z-index:24;left:20px;bottom:82px;width:min(270px,calc(100vw - 40px));padding:16px 18px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);color:var(--wine);font:italic 16px/1.5 var(--serif);display:none;border-radius:4px}
+.cat-bubble.show{display:block;animation:bubbleIn .2s ease-out}
+@keyframes bubbleIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cat-bubble small{display:block;margin-top:8px;font:700 8px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.cat-intro{position:fixed;z-index:100;inset:0;background:var(--paper);display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;transition:opacity .6s,visibility .6s}
+.cat-intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+.cat-intro-inner{max-width:460px}
+.cat-intro-cats{position:relative;display:flex;justify-content:center;align-items:center;min-height:210px;margin-bottom:12px}
+.cat-intro-cats img{width:clamp(170px,45vw,240px);height:210px;max-width:100%;object-fit:contain;animation:introApproach 5.2s cubic-bezier(.2,.7,.2,1) both;transform-origin:center bottom}
+@keyframes introApproach{0%{opacity:0;transform:translateY(65px) scale(.35)}55%{opacity:1;transform:translateY(0) scale(.9)}100%{opacity:1;transform:translateY(0) scale(1.08)}}
+}
+.cat-intro h2{font:500 clamp(35px,8vw,58px)/1.05 var(--serif);margin:0 0 14px;color:var(--wine)}
+.cat-intro p{font-size:13px;line-height:1.8;color:var(--muted);margin:0 auto 25px;max-width:340px}
+.cat-intro .btn{min-width:190px}
+@media(max-width:760px){.cat-doodle.one{right:0;top:3%}.cat-doodle.two{left:0;bottom:1%}.meme-grid{grid-template-columns:1fr}.meme-card{min-height:145px;padding:20px}.cat-note{padding:20px;gap:12px}.cat-note .cat-icon{font-size:34px}.cat-note p{font-size:16px}.cat-companion{left:12px;bottom:12px;width:48px;height:48px}.cat-bubble{left:12px;bottom:70px}}
+
+@media(max-width:760px){
+ .nav{padding:16px 20px}.navlinks{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);padding:20px;flex-direction:column;gap:18px;border-bottom:1px solid var(--line)}.navlinks.open{display:flex}.menu{display:block}
+ .hero{grid-template-columns:1fr;padding-top:125px;gap:35px}.hero h1{font-size:clamp(55px,15vw,86px)}.hero-visual{height:390px;min-height:0;margin:0 12px}
+ .section{padding:78px 22px}.section-head{display:block;margin-bottom:34px}.section-head p{margin-top:16px}
+ .gallery{grid-template-columns:repeat(2,1fr);gap:10px}.photo{min-height:190px}.photo:nth-child(2),.photo:nth-child(5){transform:none}
+ .moment{grid-template-columns:85px 1fr;gap:12px}.timeline{padding-left:25px}.moment:before{left:-31px}
+ .reasons{grid-template-columns:1fr 1fr}.reason{padding:20px;min-height:135px}.reason h3{font-size:20px}
+ .openwhen{grid-template-columns:1fr}.counter{gap:20px}.count strong{font-size:34px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+/* FULL SCREEN CLICK-TO-ANIMATE CAT INTRO */
+.cat-intro{padding:0;overflow:hidden;background:var(--paper);transition:opacity 1.4s ease,visibility 1.4s ease}
+.cat-intro-inner{position:relative;width:100%;height:100%;max-width:none;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;padding:0}
+.cat-intro-cats{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;margin:0;min-height:0;z-index:1}
+.cat-intro-cats img{display:block;width:100%;height:100%;max-width:100%;object-fit:contain;animation:none;transform:scale(.55)}
+.intro-content{position:relative;z-index:2;width:100%;padding:100px 22px 7vh;text-align:center;background:linear-gradient(transparent,rgba(247,242,236,.94) 32%);pointer-events:none;transition:opacity 1s ease}
+.intro-content button{pointer-events:auto}
+.intro-content h2{font-size:clamp(30px,7vw,52px)}
+.intro-content p{max-width:340px}
+.cat-intro.animating .intro-content{opacity:0}
+.cat-intro.animating .cat-intro-cats img{animation:introApproach 6.2s cubic-bezier(.2,.7,.2,1) both}
+@keyframes introApproach{0%{transform:scale(.55)}70%{transform:scale(.88)}100%{transform:scale(1.0)}}
+.cat-intro.hide{opacity:0;visibility:hidden;pointer-events:none}
+
+/* ONE-TIME HEART EXPLOSION AFTER THE CAT KISS */
+.cat-intro-hearts{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  overflow:hidden;
+  pointer-events:none;
+}
+.cat-intro-hearts span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  opacity:0;
+  font-size:var(--size);
+  line-height:1;
+  filter:drop-shadow(0 2px 5px rgba(120,61,75,.16));
+  will-change:transform,opacity;
+}
+.cat-intro-hearts.burst span{
+  animation:heartExplosion 1.9s cubic-bezier(.16,.7,.2,1) var(--delay) forwards;
+}
+@keyframes heartExplosion{
+  0%{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.2) rotate(0deg);
+  }
+  12%{opacity:1}
+  100%{
+    opacity:0;
+    transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1) rotate(var(--rot));
+  }
+}
+
+@media(max-width:760px){.intro-content{padding:100px 18px 7vh}}
+
+
+/* MOBILE-FIRST HERO REFINEMENT */
+@media(max-width:760px){
+  .hero{
+    min-height:auto;
+    grid-template-columns:minmax(0,1fr);
+    gap:26px;
+    padding:112px 22px 58px;
+  }
+  .hero-text{width:100%;min-width:0}
+  .hero h1{
+    font-size:clamp(48px,13vw,68px);
+    line-height:1.02;
+    margin:18px 0;
+    letter-spacing:-.05em;
+  }
+  .hero-copy{
+    font-size:13px;
+    line-height:1.8;
+    max-width:100%;
+  }
+  .hero-meta{
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:24px;
+    font-size:9px;
+  }
+  .hero-visual{
+    width:100%;
+    height:clamp(300px,92vw,410px);
+    min-height:0;
+    margin:0;
+  }
+  .hero-frame{inset:0 7% 8%}
+  .hero-note{
+    right:0;
+    bottom:0;
+    max-width:190px;
+    padding:16px 18px;
+    font-size:14px;
+  }
+  .hero-index{left:0;top:10%;font-size:8px}
+}
+@media(max-width:380px){
+  .hero{padding-left:18px;padding-right:18px}
+  .hero h1{font-size:46px}
+  .hero-visual{height:290px}
+  .hero-note{max-width:170px;padding:13px 14px;font-size:13px}
+}
+
+
+/* FLOATING CAT MEME - CAT LIFE */
+#cat-life{position:relative;overflow:hidden}
+#cat-life .section-head,
+#cat-life .meme-grid,
+#cat-life .cat-note{position:relative;z-index:1}
+#cat-life .cat-life-sticker{
+  position:absolute;
+  right:4%;
+  bottom:12px;
+  width:clamp(65px,9vw,105px);
+  height:auto;
+  opacity:.58;
+  pointer-events:none;
+  z-index:0;
+  animation:catLifeFloat 7s ease-in-out infinite;
+}
+@keyframes catLifeFloat{
+  0%,100%{transform:translateY(0) rotate(3deg)}
+  50%{transform:translateY(-10px) rotate(-3deg)}
+}
+@media(max-width:760px){
+  #cat-life .cat-life-sticker{
+    width:62px;
+    right:8px;
+    bottom:8px;
+    opacity:.48;
+  }
+}
+
+
+/* REMAINING CAT MEME STICKERS */
+#memories,#notes,#letter,#anniversary-countdown{position:relative;overflow:hidden}
+#memories .section-head,#memories .gallery,
+#notes .section-head,#notes .reasons,
+#letter > :not(.letter-cat-sticker),
+#anniversary-countdown > :not(.countdown-cat-sticker){position:relative;z-index:1}
+.memories-cat-sticker,.notes-cat-sticker,
+.letter-cat-sticker,.countdown-cat-sticker{
+  position:absolute;height:auto;pointer-events:none;z-index:0;
+  animation:remainingCatFloat 7s ease-in-out infinite
+}
+.memories-cat-sticker{width:clamp(62px,9vw,105px);right:3%;bottom:12px;opacity:.58}
+.notes-cat-sticker{width:clamp(65px,9vw,105px);right:4%;bottom:12px;opacity:.55;animation-delay:-1.5s}
+.letter-cat-sticker{width:clamp(75px,11vw,125px);right:5%;bottom:12px;opacity:.48;animation-delay:-2.5s}
+.countdown-cat-sticker{width:clamp(70px,10vw,115px);right:4%;bottom:12px;opacity:.58;animation-delay:-3.5s}
+@keyframes remainingCatFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-9px) rotate(3deg)}
+}
+@media(max-width:760px){
+  .memories-cat-sticker,.notes-cat-sticker{width:58px;right:8px;bottom:7px;opacity:.46}
+  .letter-cat-sticker{width:65px;right:8px;bottom:7px;opacity:.42}
+  .countdown-cat-sticker{width:62px;right:8px;bottom:7px;opacity:.48}
+}
+
+
+/* MORE VISIBLE CAT GIF STICKERS */
+#story .story-cat-sticker,
+.memories-cat-sticker,
+.notes-cat-sticker,
+.letter-cat-sticker,
+.countdown-cat-sticker {
+  opacity: .92 !important;
+  filter: drop-shadow(0 5px 9px rgba(65,35,40,.22));
+}
+
+#story .story-cat-sticker {
+  width: clamp(78px,12vw,135px) !important;
+  z-index: 2 !important;
+}
+
+.memories-cat-sticker {
+  width: clamp(76px,10vw,118px) !important;
+  z-index: 2 !important;
+}
+
+.notes-cat-sticker {
+  width: clamp(78px,10vw,120px) !important;
+  z-index: 2 !important;
+}
+
+.letter-cat-sticker {
+  width: clamp(88px,12vw,140px) !important;
+  z-index: 2 !important;
+}
+
+.countdown-cat-sticker {
+  width: clamp(82px,11vw,130px) !important;
+  z-index: 2 !important;
+}
+
+/* GENTLE MOVING PAW PRINTS */
+.reason,
+.open-card,
+.open-message,
+.letter {
+  position: relative;
+  overflow: hidden;
+}
+
+.reason::after,
+.open-card::after,
+.open-message::after,
+.letter::after {
+  content: "🐾";
+  position: absolute;
+  right: 13px;
+  bottom: 10px;
+  font-size: 23px;
+  opacity: .38;
+  pointer-events: none;
+  animation: littlePawMove 4.5s ease-in-out infinite;
+}
+
+.open-card:nth-child(2)::after { animation-delay: -1s; }
+.open-card:nth-child(3)::after { animation-delay: -2s; }
+.open-card:nth-child(4)::after { animation-delay: -3s; }
+
+@keyframes littlePawMove {
+  0%,100% { transform: translate(0,0) rotate(-12deg); }
+  50% { transform: translate(-5px,-8px) rotate(10deg); }
+}
+
+/* MOBILE: KEEP THE CAT STICKERS VISIBLE */
+@media(max-width:760px) {
+  #story .story-cat-sticker {
+    width: 78px !important;
+    right: 8px !important;
+    bottom: 10px !important;
+    opacity: .88 !important;
+  }
+
+  .memories-cat-sticker,
+  .notes-cat-sticker {
+    width: 70px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    opacity: .88 !important;
+  }
+
+  .letter-cat-sticker {
+    width: 78px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    opacity: .88 !important;
+  }
+
+  .countdown-cat-sticker {
+    width: 76px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    opacity: .88 !important;
+  }
+
+  .reason::after,
+  .open-card::after,
+  .open-message::after,
+  .letter::after {
+    font-size: 20px;
+    opacity: .32;
+  }
+}
+
+
+/* INTERACTIVE MEMORY CARDS */
+.memory-card {
+  perspective: 1100px;
+  min-height: 260px;
+  cursor: pointer;
+  outline-offset: 5px;
+}
+.memory-card-inner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .85s cubic-bezier(.2,.7,.2,1);
+}
+.memory-card.flipped .memory-card-inner {
+  transform: rotateY(180deg);
+}
+.memory-front, .memory-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.memory-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.memory-back {
+  transform: rotateY(180deg);
+  background: #f1e5df;
+  color: #60474a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgba(120,61,75,.2);
+}
+.memory-back .memory-heart {
+  color: var(--wine);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.memory-back strong {
+  font: italic 22px/1.3 var(--serif);
+  color: var(--wine);
+}
+.memory-back p {
+  font: 12px/1.7 var(--sans);
+  margin: 12px 0;
+}
+.memory-back .view-memory-photo {
+  border: 1px solid var(--wine);
+  background: var(--wine);
+  color: white;
+  padding: 10px 15px;
+  font: 10px var(--sans);
+  cursor: pointer;
+}
+.memory-back small {
+  margin-top: 12px;
+  font: 9px var(--sans);
+  color: var(--muted);
+}
+@media(max-width:760px) {
+  .memory-card { min-height: 190px; }
+  .memory-back { padding: 12px; }
+  .memory-back strong { font-size: 17px; }
+  .memory-back p { font-size: 10px; margin: 8px 0; }
+  .memory-back .view-memory-photo { padding: 8px 10px; }
+}
+
+
+/* Keep both people visible in memory photo #2 */
+.memory-card:nth-child(2) {
+  grid-column: span 2;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  transform: none;
+}
+
+
+/* ZOOM FIRST, FLIP SECOND MEMORY VIEWER */
+.lightbox { flex-direction:column; gap:18px; }
+.lightbox-stage {
+  width:min(92vw, 850px);
+  height:min(76vh, 680px);
+  perspective:1400px;
+  cursor:pointer;
+  outline:none;
+  opacity:0;
+  transform:scale(.82);
+  animation:memoryZoomIn .65s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes memoryZoomIn {
+  to { opacity:1; transform:scale(1); }
+}
+.lightbox-flip-inner {
+  position:relative;
+  width:100%;
+  height:100%;
+  transform-style:preserve-3d;
+  transition:transform .9s cubic-bezier(.2,.7,.2,1);
+}
+.lightbox-stage.flipped .lightbox-flip-inner {
+  transform:rotateY(180deg);
+}
+.lightbox-front, .lightbox-back {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-radius:5px;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+.lightbox-front { background:#171313; }
+.lightbox-front img {
+  width:100%;
+  height:100%;
+  max-width:none;
+  max-height:none;
+  object-fit:contain;
+}
+.lightbox-back {
+  transform:rotateY(180deg);
+  background:#f1e5df;
+  color:#60474a;
+  padding:clamp(20px,5vw,55px);
+  text-align:center;
+  flex-direction:column;
+}
+.lightbox-back .memory-heart {
+  color:var(--wine);
+  font-size:38px;
+  margin-bottom:18px;
+}
+.lightbox-back strong {
+  font:italic clamp(23px,4vw,36px)/1.3 var(--serif);
+  color:var(--wine);
+}
+.lightbox-back p {
+  font:clamp(13px,2vw,17px)/1.8 var(--sans);
+  margin:18px 0;
+  max-width:480px;
+}
+.lightbox-back small {
+  margin-top:14px;
+  font:10px var(--sans);
+  color:var(--muted);
+}
+.lightbox-hint {
+  color:#fff;
+  font:10px var(--sans);
+  letter-spacing:.12em;
+  text-align:center;
+  margin:0;
+}
+#closeLightbox { z-index:5; }
+@media(max-width:600px) {
+  .lightbox { padding:14px; }
+  .lightbox-stage { width:94vw; height:68vh; }
+  .lightbox-back { padding:18px; }
+}
+
+
+/* CLEAN MOBILE MEMORY GALLERY */
+@media (max-width: 760px) {
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .gallery .memory-card {
+    transform: none !important;
+    min-height: 190px;
+  }
+
+  .gallery .memory-card:nth-child(1) {
+    grid-column: 1 / -1;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
+  .gallery .memory-card:nth-child(2) {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+}
+\n
+/* LOVE QUIZ SCREEN */
+#loveQuiz{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:22px;overflow-y:auto;background:radial-gradient(circle at 15% 15%,#f5d9df,transparent 35%),radial-gradient(circle at 85% 85%,#ead5df,transparent 35%),var(--paper);transition:opacity .8s,visibility .8s}
+#loveQuiz.quiz-hide{opacity:0;visibility:hidden;pointer-events:none}
+.quiz-card{width:min(100%,480px);padding:clamp(22px,5vw,38px);border:1px solid rgba(120,50,70,.15);border-radius:25px;background:rgba(255,255,255,.92);box-shadow:0 20px 65px rgba(80,35,55,.13);text-align:center;animation:quizEnter .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes quizEnter{from{opacity:0;transform:translateY(35px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.quiz-kicker{color:var(--wine);font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.quiz-title{margin:14px 0 8px;color:var(--wine);font:500 clamp(30px,7vw,43px)/1.1 var(--serif)}
+.quiz-subtitle{color:var(--muted);font-size:13px;line-height:1.7}
+.quiz-progress{height:7px;margin:24px 0 9px;overflow:hidden;border-radius:20px;background:#f0e4e5}
+.quiz-progress-fill{height:100%;width:20%;border-radius:inherit;background:linear-gradient(90deg,var(--wine),var(--rose));transition:width .6s}
+.quiz-count{color:var(--muted);font-size:10px;text-align:right}
+.quiz-question{margin:24px 0 18px;color:var(--ink);font:500 clamp(22px,5vw,29px)/1.25 var(--serif)}
+.quiz-options{display:grid;gap:10px;text-align:left}
+.quiz-option{width:100%;padding:14px 16px;border:1px solid #eadde0;border-radius:13px;background:#fff;color:var(--ink);font:500 13px var(--sans);text-align:left;cursor:pointer;transition:transform .2s,background .25s,border-color .25s}
+.quiz-option:active{transform:scale(.97)}
+.quiz-option:disabled{cursor:default}
+.quiz-option.correct{border-color:#72b88a;background:#e5f7e9;animation:correctPop .55s ease}
+.quiz-option.wrong{border-color:#dc8290;background:#fff0f1;animation:wrongShake .48s ease}
+@keyframes correctPop{0%{transform:scale(.94)}60%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes wrongShake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.quiz-feedback{min-height:68px;margin-top:18px;padding:12px;border-radius:13px;background:#fbf3f3;color:var(--wine);font-size:13px;line-height:1.6;opacity:0;transform:translateY(8px);transition:.35s}
+.quiz-feedback.show{opacity:1;transform:translateY(0)}
+.quiz-reaction{display:block;margin-bottom:4px;font-size:34px;animation:reactionPop .55s cubic-bezier(.2,1.5,.5,1)}
+@keyframes reactionPop{from{transform:scale(0) rotate(-20deg)}to{transform:scale(1) rotate(0)}}
+.quiz-next{width:100%;margin-top:15px;padding:14px;border:0;border-radius:30px;background:var(--wine);color:white;font:600 12px var(--sans);cursor:pointer}
+.quiz-score{color:var(--wine);font:500 48px var(--serif)}
+.quiz-final{animation:quizEnter .8s ease both}
+.quiz-final-hearts{font-size:38px;animation:reactionPop .7s ease both}
+.quiz-confetti{position:fixed;z-index:10001;top:-15px;pointer-events:none;animation:quizConfetti 2.8s ease-in forwards}
+@keyframes quizConfetti{to{transform:translate(var(--drift),105vh) rotate(720deg);opacity:0}}
+@media(max-width:480px){#loveQuiz{padding:14px}.quiz-card{border-radius:20px}}
+
+</style>
+</head>
+<body>
+
+
+
+
+<div class="progress" id="progress"></div>
+<nav class="nav" id="nav">
+  <a class="brand" href="#top">D + C <span style="color:var(--rose)">/</span> 01</a>
+  <button class="menu" id="menu" aria-label="Open menu">☰</button>
+  <div class="navlinks" id="navlinks">
+    <a href="#story">OUR STORY</a><a href="#memories">MEMORIES</a><a href="#notes">A FEW WORDS</a><a href="#letter">LETTER</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-text reveal">
+    <div class="eyebrow">November 30, 2026 · Our first anniversary</div>
+    <h1>Isang taon.<br><em>Isang story.</em><br>Tayo.</h1>
+    <p class="hero-copy">A little place for the moments, memories, and small things that made this first year ours. Made with love, from Darwin to Cassandra.</p>
+    <div class="hero-meta"><span>Darwin & Cassandra</span><i class="line"></i><span>Since 2025</span></div>
+  </div>
+  <div class="hero-visual reveal">
+    <span class="hero-index">A YEAR IN THE MAKING · 001</span>
+    <span class="cat-doodle one" aria-hidden="true">🐈‍⬛</span><span class="cat-doodle two" aria-hidden="true">🐾</span>
+    <div class="hero-frame hero-photo" aria-label="A favorite photo of Darwin and Cassandra"><img src="photos/1.jpg" alt="Darwin and Cassandra together"></div>
+    <div class="hero-note">“The best parts are the ones we keep making.”</div>
+  </div>
+</header>
+
+<div class="intro-band">
+  <p>“Kahit ordinary lang ang araw, basta kasama kita, nagiging special na.”</p>
+  <span>A note for our first year</span>
+</div>
+
+<section class="section" id="story">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Chapter 01 · The beginning</div><h2>Ang story natin so far.</h2></div>
+    <p>Ilan 'to sa mga moments na naging part ng story natin.</p>
+  </div>
+  <div class="timeline">
+    <article class="moment reveal"><time>November 30, 2025</time><div><h3>Dito nagsimula ang lahat</h3><p>November 30, 2025. Dito nagsimula yung tayo.</p></div></article>
+    <article class="moment reveal"><time>Along the way</time><div><h3>Yung mga simpleng bagay</h3><p>Yung mga kwentuhan, tawanan, asaran, at random moments na hanggang ngayon natatandaan natin.</p></div></article>
+    <article class="moment reveal"><time>November 30, 2026</time><div><h3>Isang taon na tayo</h3><p>One year na tayo! Ang dami na nating memories, and I hope marami pa tayong magawa together.</p></div></article>
+  </div>
+  <img class="story-cat-sticker" src="cats/50c7037b50fdb9b7741a6b0c5319c6e3.gif" alt="" aria-hidden="true">
+</section>
+
+<section class="section playful-section" id="cat-life">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Intermission · Very serious research</div><h2>Relationship natin, ayon sa mga pusa.</h2></div>
+    <p>Hindi naman laging sweet moments. Minsan puro kulit, tawanan, at asaran lang tayo. 😹</p>
+  </div>
+  <div class="meme-grid">
+    <article class="meme-card reveal"><span class="meme-emoji">🐈‍⬛</span><p>“Sabi ko miss kita. Bakit hindi ka pa nandito?”</p><small>— The clingy one</small></article>
+    <article class="meme-card reveal"><span class="meme-emoji">😾</span><p>“Hindi ako galit. Naghihintay lang akong mapansin mo. 🙄”</p><small>— The tampo department</small></article>
+    <article class="meme-card reveal"><span class="meme-emoji">🐈</span><p>“Five more minutes.” (Three hours later.)</p><small>— Quality time experts</small></article>
+  </div>
+  <div class="cat-note reveal"><span class="cat-icon" aria-hidden="true">🐾</span><div><p>Final result: maraming lambing, mas maraming kulit, at konting drama. 😂</p><small>Approved ng Cat Committee</small></div></div>
+  <img class="cat-life-sticker" src="cats/667b695efd116cfde676f18a6e4f0c6a (1).gif" alt="" aria-hidden="true">
+</section>
+
+<section class="section" id="memories" style="background:var(--white)">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Chapter 02 · The moments</div><h2>Mga little memories natin.</h2></div>
+    <p>Ilan lang 'to sa pictures natin. More memories and pictures pa soon!</p>
+  </div>
+  <div class="gallery" id="gallery">
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/1.jpg" alt="Darwin and Cassandra memory 1" loading="lazy"><div class="caption">01 — One to remember</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>01 — One to remember</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/2.jpg" alt="Darwin and Cassandra memory 2" loading="lazy"><div class="caption">02 — Just the two of us</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>02 — Just the two of us</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/3.jpg" alt="Darwin and Cassandra memory 3" loading="lazy"><div class="caption">03 — Always together</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>03 — Always together</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/4.jpg" alt="Darwin and Cassandra memory 4" loading="lazy"><div class="caption">04 — The little things</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>04 — The little things</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/5.jpg" alt="Darwin and Cassandra memory 5" loading="lazy"><div class="caption">05 — One of my favorites</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>05 — One of my favorites</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/6.jpg" alt="Darwin and Cassandra memory 6" loading="lazy"><div class="caption">06 — Still making me smile</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>06 — Still making me smile</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/7.jpg" alt="Darwin and Cassandra memory 7" loading="lazy"><div class="caption">07 — My favorite company</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>07 — My favorite company</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/8.jpg" alt="Darwin and Cassandra memory 8" loading="lazy"><div class="caption">08 — Another good memory</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>08 — Another good memory</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+    <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
+      <div class="memory-card-inner">
+        <div class="memory-front"><img src="photos/9.jpg" alt="Darwin and Cassandra memory 9" loading="lazy"><div class="caption">09 — More memories soon</div></div>
+        <div class="memory-back">
+          <span class="memory-heart">♥</span>
+          <strong>09 — More memories soon</strong>
+          <p>One of my favorite moments with you, Love. ❤️</p>
+          <button type="button" class="view-memory-photo">View photo</button>
+          <small>Tap the card to flip back</small>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img class="memories-cat-sticker" src="cats/cf4b8fa0a279fa9fb18f13da1e1caa39.gif" alt="" aria-hidden="true" loading="lazy">
+</section>
+
+<section class="section" id="notes">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Chapter 03 · The reasons</div><h2>Mga bagay na gusto ko sa'yo.</h2></div>
+    <p>Hindi kailangan ng bonggang bagay. Kahit simpleng ikaw lang, masaya na ako.</p>
+  </div>
+  <div class="reasons">
+    <div class="reason reveal"><small>01 / YUNG PRESENCE MO</small><h3>Mas okay ang araw ko kapag kasama kita.</h3></div>
+    <div class="reason reveal"><small>02 / YUNG TAWA MO</small><h3>I love how you always make me smile.</h3></div>
+    <div class="reason reveal"><small>03 / The little things</small><h3>Yung simple moments natin, sila pa yung madalas kong maalala.</h3></div>
+    <div class="reason reveal"><small>04 / YUNG TAYO</small><h3>I'm really happy na naging part ka ng buhay ko.</h3></div>
+  </div>
+  <img class="notes-cat-sticker" src="cats/d49bb1b75758d298d2e80a91d475fcf5.gif" alt="" aria-hidden="true" loading="lazy">
+</section>
+
+<section class="section" style="background:var(--paper2)">
+  <div class="section-head reveal">
+    <div><div class="eyebrow">Chapter 04 · For any kind of day</div><h2>Basahin mo 'to kapag kailangan mo ng konting lambing.</h2></div>
+    <p>Pili ka ng card. May message ako para sa'yo. ❤️</p>
+  </div>
+  <div class="openwhen">
+    <button class="open-card reveal" data-message="Love, if today feels too much, take a break muna, okay? Hindi mo kailangang isipin lahat nang sabay-sabay. I'm here for you. Kaya mo 'yan. ❤️"><span>Open when...</span><strong>Mabigat ang araw mo</strong></button>
+    <button class="open-card reveal" data-message="Miss na rin kita, Love. Kahit busy tayo, I hope you know na naiisip pa rin kita. Ingat ka lagi, ha? ❤️"><span>Open when...</span><strong>Miss mo ako</strong></button>
+    <button class="open-card reveal" data-message="Love, kapag pagod ka na, rest ka muna. No need to push yourself too hard. Pahinga ka rin. You deserve it. ❤️"><span>Open when...</span><strong>Pagod ka na</strong></button>
+    <button class="open-card reveal" data-message="Hey Love, reminder lang na you're important to me. I'm really glad na nagkakilala tayo. I'm lucky to have you. ❤️"><span>Open when...</span><strong>Kailangan mo ng reminder</strong></button>
+  </div>
+  <div class="open-message" id="openMessage" aria-live="polite"></div>
+</section>
+
+<section class="letter-wrap" id="letter">
+  <div class="eyebrow">Last page · Pero hindi pa last chapter</div>
+  <h2>Para sa'yo, Love.</h2>
+  <p>May mga bagay akong gustong sabihin sa'yo, kaya sinulat ko na lang dito. Basahin mo kapag free ka, Love.</p>
+  <button class="btn" id="letterBtn">Basahin ang letter ko</button>
+  <div class="letter" id="letterText">
+    <p>Hi, Love. ❤️</p>
+    <p>Happy first anniversary sa atin! One year na tayo, can you believe that? Ang bilis ng panahon. Parang kailan lang nagsimula lahat, tapos ngayon ang dami na nating memories na pwede nating balikan.</p>
+    <p>Thank you sa lahat, Love. Sa mga tawanan, kwentuhan, lambingan, asaran, dates, at kahit sa mga ordinary days na magkasama lang tayo. Hindi man ako laging magaling magsabi ng feelings ko, I hope this little website makes you feel how much you mean to me. I made this for you because you deserve something special.</p>
+    <p>Alam ko hindi naman laging perfect ang lahat. May times na okay tayo, may times din na may tampuhan or misunderstandings. Pero I hope we keep choosing each other, keep learning, and keep understanding one another. Gusto ko pang makasama ka sa maraming dates, food trips, random gala, at simple days na tayo lang.</p>
+    <p>I'm really happy na ikaw yung kasama ko sa journey na 'to. Thank you for being you, Love. Thank you sa love, patience, and all the little things you do. Happy first anniversary sa atin. I love you so much. ❤️</p>
+    <p style="text-align:right;color:var(--wine);font-style:italic">— Darwin</p>
+  </div>
+  <img class="letter-cat-sticker" src="cats/fabd42926a2e3db1673d4f00907432e1.gif" alt="" aria-hidden="true" loading="lazy">
+</section>
+
+<section class="section" id="anniversary-countdown" style="text-align:center">
+  <div class="eyebrow reveal">November 30, 2025 — November 30, 2026</div>
+  <h2 class="reveal" style="font:500 clamp(38px,6vw,72px) var(--serif);margin:16px 0 0">Isang taon na tayo.</h2>
+  <p class="reveal" style="font-size:12px;color:var(--muted)">And this is just the beginning. Marami pa tayong memories na gagawin together.</p>
+  <div class="counter reveal" aria-label="Time together">
+    <div class="count"><strong id="days">365</strong><span>Days</span></div>
+    <div class="count"><strong id="hours">00</strong><span>Hours</span></div>
+    <div class="count"><strong id="minutes">00</strong><span>Minutes</span></div>
+    <div class="count"><strong id="seconds">00</strong><span>Seconds</span></div>
+  </div>
+  <img class="countdown-cat-sticker" src="cats/happy-cat-happy-happy-cat.gif" alt="" aria-hidden="true" loading="lazy">
+</section>
+
+<footer class="footer">
+  <div class="names">Darwin & Cassandra <span style="font-size:22px">🐈‍⬛</span></div>
+  <p>Made with love · First anniversary natin · 2026</p>
+</footer>
+
+<div class="lightbox" id="lightbox">
+  <button id="closeLightbox" aria-label="Close">×</button>
+  <div class="lightbox-stage" id="lightboxStage" role="button" tabindex="0" aria-label="Tap to reveal the memory message">
+    <div class="lightbox-flip-inner" id="lightboxFlipInner">
+      <div class="lightbox-front"><img id="lightboxImg" alt="Memory"></div>
+      <div class="lightbox-back" id="lightboxBack"></div>
+    </div>
+  </div>
+  <p class="lightbox-hint" id="lightboxHint">Tap the photo to reveal a message ♥</p>
+</div>
+<div class="cat-bubble" id="catBubble" role="status">pspsps… I have a very important reminder for you.<small>your tiny relationship supervisor</small></div>
+<button class="cat-companion" id="catCompanion" aria-label="Ask the cat for a message" title="Tap the cat">🐈‍⬛</button>
+
+
+<script>
+const $ = id => document.getElementById(id);
+const catLines=[
+  'Love, reminder lang: give your favorite person some extra lambing today. 🐾',
+  'Breaking news: may isang taong sobrang happy kasi ikaw ang kasama niya. 😹',
+  'Tampo detected! Baka kailangan lang ng hug at konting lambing. 😼',
+  'Us be like: maraming memories, maraming kulit, at walang katapusang kwentuhan.',
+  'Love, kahit minsan makulit ako, mahal na mahal kita. Always remember that. 🐈‍⬛'
+];
+$('catCompanion').addEventListener('click',()=>{
+  const bubble=$('catBubble');
+  bubble.textContent=catLines[Math.floor(Math.random()*catLines.length)];
+  const label=document.createElement('small');label.textContent='yung maliit nating relationship supervisor';bubble.appendChild(label);
+  bubble.classList.toggle('show');
+});
+const nav = $('nav'), links = $('navlinks');
+$('menu').addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>25);
+  const max=document.documentElement.scrollHeight-innerHeight;
+  $('progress').style.width=(max>0?window.scrollY/max*100:0)+'%';
+});
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('.open-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    const box=$('openMessage');box.textContent=card.dataset.message;box.classList.add('show');
+  });
+});
+$('letterBtn').addEventListener('click',()=>{
+  $('letterText').classList.toggle('show');
+  $('letterBtn').textContent=$('letterText').classList.contains('show')?'Close letter':'Basahin ang letter ko';
+});
+
+
+// First tap opens the zoomed photo. Tap again to flip and reveal its message.
+const lightbox = $("lightbox");
+const lightboxStage = $("lightboxStage");
+const lightboxBack = $("lightboxBack");
+const lightboxHint = $("lightboxHint");
+
+function closeMemoryViewer() {
+  lightbox.classList.remove("show");
+  lightboxStage.classList.remove("flipped");
+  lightboxBack.innerHTML = "";
+}
+
+function openMemoryViewer(card) {
+  const photo = card.querySelector(".memory-front img, img");
+  if (!photo) return;
+
+  $("lightboxImg").src = photo.src;
+
+  const originalMessage = card.querySelector(".memory-back");
+  if (originalMessage) {
+    lightboxBack.innerHTML = "";
+
+    Array.from(originalMessage.children).forEach(child => {
+      if (child.matches(".view-memory-photo")) return;
+
+      const copy = child.cloneNode(true);
+      if (copy.matches("small")) {
+        copy.textContent = "Tap to see the photo again ♥";
+      }
+      lightboxBack.appendChild(copy);
+    });
+  } else {
+    lightboxBack.innerHTML = '<span class="memory-heart">♥</span><strong>One of my favorite memories</strong><p>Every moment with you is special, Love. ❤️</p><small>Tap to see the photo again</small>';
+  }
+
+  lightboxStage.classList.remove("flipped");
+  lightboxHint.textContent = "Tap the photo to reveal a message ♥";
+  lightbox.classList.add("show");
+}
+
+// Remove the duplicate fifth memory card
+const memoryCards = document.querySelectorAll(".memory-card");
+if (memoryCards[4]) memoryCards[4].remove();
+
+document.querySelectorAll(".memory-card").forEach(card => {
+  card.addEventListener("click", () => openMemoryViewer(card));
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openMemoryViewer(card);
+    }
+  });
+});
+
+function flipZoomedMemory() {
+  lightboxStage.classList.toggle("flipped");
+  lightboxHint.textContent = lightboxStage.classList.contains("flipped")
+    ? "Tap again to see your photo ♥"
+    : "Tap the photo to reveal a message ♥";
+}
+
+lightboxStage.addEventListener("click", flipZoomedMemory);
+lightboxStage.addEventListener("keydown", e => {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    flipZoomedMemory();
+  }
+});
+
+$("closeLightbox").addEventListener("click", closeMemoryViewer);
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) closeMemoryViewer();
+});
+
+function updateCounter(){
+  const start=new Date(2025,10,30,0,0,0),now=new Date();
+  let diff=Math.max(0,now-start);
+  const days=Math.floor(diff/86400000);diff%=86400000;
+  $('days').textContent=days;
+  $('hours').textContent=String(Math.floor(diff/3600000)).padStart(2,'0');diff%=3600000;
+  $('minutes').textContent=String(Math.floor(diff/60000)).padStart(2,'0');diff%=60000;
+  $('seconds').textContent=String(Math.floor(diff/1000)).padStart(2,'0');
+}
+updateCounter();setInterval(updateCounter,1000);
+</script>
+<script src="music.js"></script>
+</body>
+</html>
