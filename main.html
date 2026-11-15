@@ -29,6 +29,29 @@ a{color:inherit;text-decoration:none}
 .navlinks{display:flex;gap:25px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
 .navlinks a:hover{color:var(--wine)}
 .menu{display:none;border:0;background:none;color:var(--ink);font-size:22px}
+
+/* ANNIVERSARY SURPRISE ENVELOPE */
+.anniversary-envelope{position:relative;z-index:10;display:flex;justify-content:center;padding:105px 20px 20px;background:var(--paper)}
+.envelope-trigger{display:flex;flex-direction:column;align-items:center;gap:9px;width:min(100%,340px);padding:22px 18px;border:1px solid rgba(120,61,75,.2);border-radius:4px;background:var(--white);color:var(--ink);cursor:pointer;box-shadow:0 10px 30px rgba(70,40,40,.07);transition:transform .45s ease,box-shadow .45s ease,border-color .45s ease}
+.envelope-trigger:hover{transform:translateY(-4px);border-color:var(--rose);box-shadow:0 15px 35px rgba(70,40,40,.12)}
+.envelope-icon{font-size:42px;line-height:1.2}
+.envelope-label{font:500 21px var(--serif);color:var(--wine)}
+.envelope-hint{font-size:10px;letter-spacing:.08em;color:var(--muted)}
+.envelope-modal[hidden]{display:none}
+.envelope-modal{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;padding:20px;background:rgba(35,25,27,.58);backdrop-filter:blur(7px);animation:envelopeFade .35s ease both}
+.envelope-dialog{position:relative;width:min(100%,440px);padding:48px 30px 38px;text-align:center;background:var(--paper);border:1px solid rgba(120,61,75,.18);box-shadow:0 25px 80px rgba(0,0,0,.2);animation:envelopePop .5s ease both}
+.envelope-close{position:absolute;top:10px;right:15px;border:0;background:none;color:var(--wine);font-size:27px;cursor:pointer}
+.envelope-dialog-icon{font-size:42px;margin-bottom:18px}
+.envelope-dialog h2{font:500 clamp(30px,6vw,42px)/1.1 var(--serif);color:var(--wine);margin:14px 0}
+.envelope-dialog>p:not(.eyebrow){color:var(--muted);font-size:13px;line-height:1.9}
+.envelope-video-placeholder{margin-top:25px;padding:28px 15px;border:1px dashed rgba(120,61,75,.35);background:var(--white)}
+.envelope-video-placeholder span{font-size:27px;color:var(--rose)}
+.envelope-video-placeholder h3{font:italic 27px var(--serif);color:var(--wine);margin:12px 0 8px}
+.envelope-video-placeholder p{font-size:11px;color:var(--muted);line-height:1.7}
+@keyframes envelopeFade{from{opacity:0}to{opacity:1}}
+@keyframes envelopePop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(max-width:760px){.anniversary-envelope{padding:92px 18px 12px}.envelope-trigger{padding:18px 14px}.envelope-icon{font-size:36px}.envelope-dialog{padding:45px 22px 30px}}
+
 .hero{min-height:100svh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:5vw;padding:130px clamp(22px,8vw,120px) 75px;position:relative;overflow:hidden}
 .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--wine);font-weight:700}
 .hero h1{font:500 clamp(52px,8vw,112px)/.98 var(--serif);letter-spacing:-.055em;margin:24px 0 22px;max-width:720px}
@@ -107,6 +130,7 @@ a{color:inherit;text-decoration:none}
 .count{text-align:center}
 .count strong{display:block;font:500 clamp(30px,5vw,55px) var(--serif);color:var(--wine)}
 .count span{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.footer-live-clock{font-variant-numeric:tabular-nums}.footer-live-clock #philippineDate{line-height:1.8}
 .footer{padding:55px 22px;text-align:center;background:#292323;color:#f7f2ec}
 .footer .names{font:italic 35px var(--serif);color:#d7b3ae}
 .footer p{font-size:9px;letter-spacing:.17em;text-transform:uppercase;color:#b9aaa5;margin-top:15px}
@@ -1027,6 +1051,29 @@ a{color:inherit;text-decoration:none}
   </div>
 </nav>
 
+<section class="anniversary-envelope" id="anniversaryEnvelope">
+  <button class="envelope-trigger" id="envelopeTrigger" type="button" aria-label="Open anniversary surprise">
+    <span class="envelope-icon" aria-hidden="true">💌</span>
+    <span class="envelope-label">A little surprise for Love</span>
+    <span class="envelope-hint" id="envelopeHint">Something special is waiting...</span>
+  </button>
+</section>
+
+<div class="envelope-modal" id="envelopeModal" hidden>
+  <div class="envelope-dialog" role="dialog" aria-modal="true" aria-labelledby="envelopeDialogTitle">
+    <button class="envelope-close" id="envelopeClose" type="button" aria-label="Close">×</button>
+    <div class="envelope-dialog-icon" id="envelopeDialogIcon">🔒</div>
+    <p class="eyebrow" id="envelopeDialogEyebrow">A surprise for you</p>
+    <h2 id="envelopeDialogTitle">Not just yet, Love.</h2>
+    <p id="envelopeDialogMessage">May kailangan ka munang hintayin. This little surprise will open on our anniversary.</p>
+    <div class="envelope-video-placeholder" id="envelopeVideoPlaceholder" hidden>
+      <span>♥</span>
+      <h3>To be continued...</h3>
+      <p>Our little video surprise will be here soon.</p>
+    </div>
+  </div>
+</div>
+
 <header class="hero" id="top">
   <div class="hero-text reveal">
     <div class="eyebrow">November 30, 2026 · Our first anniversary</div>
@@ -1272,21 +1319,37 @@ a{color:inherit;text-decoration:none}
 </section>
 
 <section class="section" id="anniversary-countdown" style="text-align:center">
-  <div class="eyebrow reveal">November 30, 2025 — November 30, 2026</div>
-  <h2 class="reveal" style="font:500 clamp(38px,6vw,72px) var(--serif);margin:16px 0 0">Isang taon na tayo.</h2>
+  <div class="eyebrow reveal">NOVEMBER 30, 2025 — NOVEMBER 30, 2026</div>
+  <h2 class="reveal" id="anniversaryTitle" style="font:500 clamp(38px,6vw,72px) var(--serif);margin:16px 0 0">Malapit na ang first anniversary natin.</h2>
   <p class="reveal" style="font-size:12px;color:var(--muted)">And this is just the beginning. Marami pa tayong memories na gagawin together.</p>
+
+  <div class="eyebrow reveal" style="margin-top:38px">OUR TIME TOGETHER</div>
   <div class="counter reveal" aria-label="Time together">
-    <div class="count"><strong id="days">365</strong><span>Days</span></div>
+    <div class="count"><strong id="days">0</strong><span>Days</span></div>
     <div class="count"><strong id="hours">00</strong><span>Hours</span></div>
     <div class="count"><strong id="minutes">00</strong><span>Minutes</span></div>
     <div class="count"><strong id="seconds">00</strong><span>Seconds</span></div>
   </div>
+
+  <div class="eyebrow reveal" style="margin-top:48px">COUNTDOWN TO OUR FIRST ANNIVERSARY</div>
+  <div class="counter reveal" aria-label="Countdown to first anniversary">
+    <div class="count"><strong id="anniversaryDays">0</strong><span>Days</span></div>
+    <div class="count"><strong id="anniversaryHours">00</strong><span>Hours</span></div>
+    <div class="count"><strong id="anniversaryMinutes">00</strong><span>Minutes</span></div>
+    <div class="count"><strong id="anniversarySeconds">00</strong><span>Seconds</span></div>
+  </div>
+
   <img class="countdown-cat-sticker" src="cats/happy-cat-happy-happy-cat.gif" alt="" aria-hidden="true" loading="lazy">
 </section>
 
 <footer class="footer">
   <div class="names">Darwin & Cassandra <span style="font-size:22px">🐈‍⬛</span></div>
   <p>Made with love · First anniversary natin · 2026</p>
+  <div class="footer-live-clock" style="margin-top:25px">
+    <div id="philippineDate" style="font-size:11px;letter-spacing:.08em;color:#d7b3ae"></div>
+    <div id="philippineClock" style="font:500 clamp(25px,5vw,38px) var(--serif);margin-top:7px;color:#fffdf9;font-variant-numeric:tabular-nums">--:--:--</div>
+    <div style="font-size:9px;letter-spacing:.16em;margin-top:7px;color:#b9aaa5">PHILIPPINE STANDARD TIME · UTC+8</div>
+  </div>
 </footer>
 
 <div class="lightbox" id="lightbox">
@@ -1458,16 +1521,140 @@ lightbox.addEventListener("click", e => {
   if (e.target === lightbox) closeMemoryViewer();
 });
 
-function updateCounter(){
-  const start=new Date(2025,10,30,0,0,0),now=new Date();
-  let diff=Math.max(0,now-start);
-  const days=Math.floor(diff/86400000);diff%=86400000;
-  $('days').textContent=days;
-  $('hours').textContent=String(Math.floor(diff/3600000)).padStart(2,'0');diff%=3600000;
-  $('minutes').textContent=String(Math.floor(diff/60000)).padStart(2,'0');diff%=60000;
-  $('seconds').textContent=String(Math.floor(diff/1000)).padStart(2,'0');
+const RELATIONSHIP_START = new Date("2025-11-30T00:00:00+08:00").getTime();
+const FIRST_ANNIVERSARY = new Date("2026-11-30T00:00:00+08:00").getTime();
+
+const philippineDateFormatter = new Intl.DateTimeFormat("en-PH", {
+  timeZone: "Asia/Manila",
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+
+const philippineTimeFormatter = new Intl.DateTimeFormat("en-PH", {
+  timeZone: "Asia/Manila",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true
+});
+
+function updateTimerGroup(prefix, difference) {
+  let diff = Math.max(0, difference);
+  const days = Math.floor(diff / 86400000);
+  diff %= 86400000;
+  const hours = Math.floor(diff / 3600000);
+  diff %= 3600000;
+  const minutes = Math.floor(diff / 60000);
+  diff %= 60000;
+  const seconds = Math.floor(diff / 1000);
+
+  const values = {
+    Days: days,
+    Hours: String(hours).padStart(2, "0"),
+    Minutes: String(minutes).padStart(2, "0"),
+    Seconds: String(seconds).padStart(2, "0")
+  };
+
+  Object.entries(values).forEach(([unit, value]) => {
+    const element = document.getElementById(prefix ? prefix + unit : unit.toLowerCase());
+    if (element) element.textContent = value;
+  });
 }
-updateCounter();setInterval(updateCounter,1000);
+
+
+/* ANNIVERSARY ENVELOPE UNLOCK */
+const envelopeTrigger = document.getElementById("envelopeTrigger");
+const envelopeModal = document.getElementById("envelopeModal");
+const envelopeClose = document.getElementById("envelopeClose");
+const envelopeHint = document.getElementById("envelopeHint");
+const envelopeIcon = document.getElementById("envelopeDialogIcon");
+const envelopeTitle = document.getElementById("envelopeDialogTitle");
+const envelopeEyebrow = document.getElementById("envelopeDialogEyebrow");
+const envelopeMessage = document.getElementById("envelopeDialogMessage");
+const envelopePlaceholder = document.getElementById("envelopeVideoPlaceholder");
+
+function updateEnvelopeStatus() {
+  const unlocked = Date.now() >= FIRST_ANNIVERSARY;
+
+  if (envelopeHint) {
+    envelopeHint.textContent = unlocked
+      ? "Your surprise is ready. Tap to open ♥"
+      : "Sealed with love · Opens November 30, 2026";
+  }
+
+  if (envelopeTrigger) {
+    envelopeTrigger.setAttribute(
+      "aria-label",
+      unlocked ? "Open your anniversary surprise" : "Open locked anniversary envelope"
+    );
+  }
+}
+
+function openEnvelope() {
+  const unlocked = Date.now() >= FIRST_ANNIVERSARY;
+
+  if (envelopeIcon) envelopeIcon.textContent = unlocked ? "💌" : "🔒";
+  if (envelopeEyebrow) envelopeEyebrow.textContent = unlocked ? "Finally, it's time" : "A surprise for you";
+  if (envelopeTitle) envelopeTitle.textContent = unlocked ? "Happy first anniversary, Love." : "Not just yet, Love.";
+  if (envelopeMessage) {
+    envelopeMessage.textContent = unlocked
+      ? "This little surprise is finally yours. There's still more to come..."
+      : "May kailangan ka munang hintayin. This little surprise will open on our anniversary, November 30, 2026.";
+  }
+  if (envelopePlaceholder) envelopePlaceholder.hidden = !unlocked;
+
+  if (envelopeModal) {
+    envelopeModal.hidden = false;
+    document.body.style.overflow = "hidden";
+    envelopeClose?.focus();
+  }
+}
+
+function closeEnvelope() {
+  if (envelopeModal) envelopeModal.hidden = true;
+  document.body.style.overflow = "";
+  envelopeTrigger?.focus();
+}
+
+envelopeTrigger?.addEventListener("click", openEnvelope);
+envelopeClose?.addEventListener("click", closeEnvelope);
+
+envelopeModal?.addEventListener("click", event => {
+  if (event.target === envelopeModal) closeEnvelope();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && envelopeModal && !envelopeModal.hidden) {
+    closeEnvelope();
+  }
+});
+
+updateEnvelopeStatus();
+
+function updateAnniversaryPage() {
+  const now = Date.now();
+
+  updateTimerGroup("", now - RELATIONSHIP_START);
+  updateTimerGroup("anniversary", FIRST_ANNIVERSARY - now);
+
+  const title = document.getElementById("anniversaryTitle");
+  if (title) {
+    title.textContent = now >= FIRST_ANNIVERSARY
+      ? "Isang taon na tayo."
+      : "Malapit na ang first anniversary natin.";
+  }
+
+  const dateElement = document.getElementById("philippineDate");
+  const timeElement = document.getElementById("philippineClock");
+
+  if (dateElement) dateElement.textContent = philippineDateFormatter.format(now);
+  if (timeElement) timeElement.textContent = philippineTimeFormatter.format(now);
+}
+
+updateAnniversaryPage();
+setInterval(updateAnniversaryPage, 1000);
 </script>
 <script src="memories.js"></script>
   <script src="music.js"></script>
