@@ -64,7 +64,8 @@ a{color:inherit;text-decoration:none}
 @media(max-width:760px){
   #story .story-cat-sticker{width:66px;right:12px;bottom:12px;opacity:.58}
 }
-\n.section{padding:110px clamp(22px,8vw,120px)}
+
+.section{padding:110px clamp(22px,8vw,120px)}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:48px}
 .section-head h2{font:500 clamp(36px,5vw,64px)/1.05 var(--serif);letter-spacing:-.035em;margin:12px 0 0}
 .section-head p{max-width:310px;color:var(--muted);font-size:12px;line-height:1.8;margin:0}
@@ -114,7 +115,16 @@ a{color:inherit;text-decoration:none}
 .lightbox{display:none;position:fixed;z-index:50;inset:0;background:rgba(24,18,18,.94);align-items:center;justify-content:center;padding:20px}
 .lightbox.show{display:flex}
 .lightbox img{max-width:95%;max-height:88%;object-fit:contain}
-.lightbox button{position:absolute;top:20px;right:22px;background:none;border:0;color:white;font-size:30px}
+.lightbox > button#closeLightbox {
+  position: fixed;
+  top: max(18px, env(safe-area-inset-top));
+  right: max(18px, env(safe-area-inset-right));
+  background: rgba(247,242,236,.95);
+  border: 0;
+  color: #783d4b;
+  font-size: 28px;
+  z-index: 10020;
+}
 .music{position:fixed;z-index:22;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--white);color:var(--wine);cursor:pointer;box-shadow:var(--shadow)}
 
 /* Playful cat details — kept subtle so the editorial layout stays elegant */
@@ -428,6 +438,157 @@ a{color:inherit;text-decoration:none}
 }
 
 
+
+/* ADD MEMORY BUTTON */
+.add-memory-trigger {
+  display: block;
+  margin: 0 auto 28px;
+  padding: 12px 20px;
+  border: 1px solid var(--wine);
+  border-radius: 30px;
+  background: var(--wine);
+  color: white;
+  font: 12px var(--sans);
+  cursor: pointer;
+  transition: background .35s ease, transform .35s ease, box-shadow .35s ease;
+}
+.add-memory-trigger:hover {
+  background: var(--rose);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(120,61,75,.16);
+}
+.add-memory-trigger:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 4px;
+}
+
+
+/* MEMORY ADMIN PANEL */
+.memory-admin-overlay[hidden],
+#memoryLoginPanel[hidden],
+#memoryUploadPanel[hidden] {
+  display: none !important;
+}
+.memory-admin-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(35, 23, 27, .65);
+  backdrop-filter: blur(6px);
+}
+.memory-admin-panel {
+  position: relative;
+  width: min(100%, 440px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 32px 24px;
+  border: 1px solid rgba(120,61,75,.2);
+  border-radius: 18px;
+  background: var(--paper, #f7f2ec);
+  color: var(--ink, #292323);
+  box-shadow: 0 20px 70px rgba(0,0,0,.22);
+}
+.memory-admin-panel h3 {
+  margin: 0 0 10px;
+  color: var(--wine);
+  font: italic 26px var(--serif);
+  text-align: center;
+}
+.memory-admin-panel p {
+  color: var(--muted);
+  font: 12px/1.7 var(--sans);
+  text-align: center;
+}
+.memory-admin-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  color: var(--wine);
+  font-size: 28px;
+  cursor: pointer;
+}
+.memory-admin-panel form {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+.memory-admin-panel input,
+.memory-admin-panel textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid rgba(120,61,75,.25);
+  border-radius: 9px;
+  background: #fffdf9;
+  color: #292323;
+  font: 13px var(--sans);
+}
+.memory-admin-panel textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.memory-admin-panel form button {
+  padding: 13px;
+  border: 0;
+  border-radius: 30px;
+  background: var(--wine);
+  color: white;
+  font: 12px var(--sans);
+  cursor: pointer;
+}
+.memory-admin-panel form button:hover {
+  background: var(--rose);
+}
+@media(max-width:480px) {
+  .memory-admin-panel {
+    padding: 30px 18px 22px;
+  }
+}
+
+/* ADMIN MEMORY ACTIONS */
+.memory-admin-actions {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.memory-admin-actions[hidden] {
+  display: none !important;
+}
+
+.memory-admin-actions button {
+  padding: 7px 14px;
+  border: 1px solid var(--wine);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--wine);
+  font: 11px var(--sans);
+  cursor: pointer;
+  transition: background .3s ease, color .3s ease;
+}
+
+.memory-admin-actions button:hover {
+  background: var(--wine);
+  color: white;
+}
+
+.memory-admin-actions button:last-child {
+  border-color: #a94b55;
+  color: #a94b55;
+}
+
+.memory-admin-actions button:last-child:hover {
+  background: #a94b55;
+  color: white;
+}
+
 /* INTERACTIVE MEMORY CARDS */
 .memory-card {
   perspective: 1100px;
@@ -595,7 +756,21 @@ a{color:inherit;text-decoration:none}
   text-align:center;
   margin:0;
 }
-#closeLightbox { z-index:5; }
+#closeLightbox {
+  position: fixed;
+  top: max(18px, env(safe-area-inset-top));
+  right: max(18px, env(safe-area-inset-right));
+  z-index: 10020;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(247,242,236,.95);
+  color: #783d4b;
+  font-size: 28px;
+  line-height: 1;
+}
 @media(max-width:600px) {
   .lightbox { padding:14px; }
   .lightbox-stage { width:94vw; height:68vh; }
@@ -627,7 +802,8 @@ a{color:inherit;text-decoration:none}
     min-height: 0;
   }
 }
-\n
+
+
 /* LOVE QUIZ SCREEN */
 #loveQuiz{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:22px;overflow-y:auto;background:radial-gradient(circle at 15% 15%,#f5d9df,transparent 35%),radial-gradient(circle at 85% 85%,#ead5df,transparent 35%),var(--paper);transition:opacity .8s,visibility .8s}
 #loveQuiz.quiz-hide{opacity:0;visibility:hidden;pointer-events:none}
@@ -660,7 +836,182 @@ a{color:inherit;text-decoration:none}
 @keyframes quizConfetti{to{transform:translate(var(--drift),105vh) rotate(720deg);opacity:0}}
 @media(max-width:480px){#loveQuiz{padding:14px}.quiz-card{border-radius:20px}}
 
+
+/* FIX: VISIBLE ADMIN BUTTONS BELOW MEMORY CARDS */
+.gallery .memory-card {
+  overflow: visible !important;
+  min-height: 0;
+}
+
+.gallery .memory-card-inner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.gallery .memory-admin-actions {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  min-height: 34px;
+}
+
+.gallery .memory-admin-actions[hidden] {
+  display: none !important;
+}
+
+.gallery .memory-admin-actions button {
+  position: relative;
+  z-index: 11;
+  cursor: pointer;
+}
+
+
+/* ADMIN CONTROLS INSIDE MEMORY VIEWER */
+.lightbox-admin-actions {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: min(92vw, 850px);
+  margin: 12px auto 0;
+  padding: 8px 12px;
+}
+
+.lightbox-admin-actions[hidden] {
+  display: none !important;
+}
+
+.lightbox-admin-actions[hidden] {
+  display: none !important;
+}
+
+.lightbox-admin-actions button {
+  padding: 11px 20px;
+  border: 1px solid #d7b3ae;
+  border-radius: 24px;
+  background: transparent;
+  color: #fff;
+  font: 11px var(--sans);
+  cursor: pointer;
+  transition: background .3s ease, color .3s ease;
+}
+
+.lightbox-admin-actions button:hover {
+  background: #d7b3ae;
+  color: #292323;
+}
+
+#lightboxDeleteMemory {
+  border-color: #d98c91;
+  color: #f2b9bd;
+}
+
+
+/* ROMANTIC MEMORY DIALOG */
+.memory-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(35, 22, 25, .58);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  opacity: 1;
+  animation: memoryDialogFade .35s ease both;
+}
+.memory-dialog-overlay[hidden] { display: none !important; }
+.memory-dialog {
+  width: min(100%, 390px);
+  padding: 30px 24px 24px;
+  border: 1px solid rgba(120,61,75,.15);
+  border-radius: 22px;
+  background: #f7f2ec;
+  color: #292323;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(25,12,16,.28);
+  animation: memoryDialogPop .45s cubic-bezier(.2,.7,.2,1) both;
+}
+.memory-dialog-heart {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 15px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eee1dc;
+  color: #783d4b;
+  font-size: 25px;
+}
+.memory-dialog h3 {
+  margin: 0 0 10px;
+  color: #783d4b;
+  font: italic 25px/1.25 var(--serif);
+}
+.memory-dialog p {
+  margin: 0 auto 24px;
+  max-width: 300px;
+  color: #715d5c;
+  font: 13px/1.7 var(--sans);
+}
+.memory-dialog-actions {
+  display: flex;
+  gap: 10px;
+}
+.memory-dialog-actions button {
+  flex: 1;
+  min-height: 45px;
+  border: 0;
+  border-radius: 30px;
+  font: 12px var(--sans);
+  cursor: pointer;
+  transition: transform .25s, opacity .25s;
+}
+.memory-dialog-actions button:active { transform: scale(.96); }
+#memoryDialogCancel { background: #e9dfd8; color: #60474a; }
+#memoryDialogConfirm { background: #783d4b; color: #fffdf9; }
+.memory-toast {
+  position: fixed;
+  z-index: 10060;
+  left: 50%;
+  bottom: 28px;
+  width: max-content;
+  max-width: calc(100% - 36px);
+  padding: 13px 20px;
+  border: 1px solid rgba(120,61,75,.15);
+  border-radius: 30px;
+  background: #f7f2ec;
+  color: #60474a;
+  box-shadow: 0 12px 35px rgba(25,12,16,.18);
+  font: 12px/1.5 var(--sans);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 14px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.memory-toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@keyframes memoryDialogFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes memoryDialogPop {
+  from { opacity: 0; transform: translateY(18px) scale(.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -728,7 +1079,42 @@ a{color:inherit;text-decoration:none}
     <div><div class="eyebrow">Chapter 02 · The moments</div><h2>Mga little memories natin.</h2></div>
     <p>Ilan lang 'to sa pictures natin. More memories and pictures pa soon!</p>
   </div>
-  <div class="gallery" id="gallery">
+  <button type="button" class="add-memory-trigger" id="addMemoryBtn">＋ Add a memory</button>
+  
+  <div class="memory-admin-overlay" id="memoryAdminOverlay" hidden>
+    <div class="memory-admin-panel">
+      <button type="button" class="memory-admin-close" id="closeMemoryAdmin" aria-label="Close">×</button>
+
+      <div id="memoryLoginPanel">
+        <h3>Admin Login ♥</h3>
+        <p>Login muna para makapagdagdag ng memories natin.</p>
+        <form id="memoryLoginForm">
+          <input type="email" id="memoryAdminEmail" placeholder="Admin email" required>
+          <input type="password" id="memoryAdminPassword" placeholder="Password" required>
+          <button type="submit">Login</button>
+          <p id="memoryLoginStatus" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div id="memoryUploadPanel" hidden>
+        <h3 id="memoryFormHeading">Add a memory ♥</h3>
+        <p id="memoryFormDescription">Upload a photo and write the story behind it.</p>
+        <form id="memoryUploadForm">
+          <input type="text" id="memoryTitle" placeholder="Memory title" maxlength="100" required>
+          <input type="date" id="memoryDate">
+          <textarea id="memoryMessage" placeholder="Write your message..." maxlength="1000" required></textarea>
+          <input type="file" id="memoryPhoto" accept="image/jpeg,image/png,image/webp">
+          <small id="memoryPhotoHint">Choose a photo (required for new memories).</small>
+          <button type="submit" id="memorySaveBtn">Save memory</button>
+          <button type="button" id="memoryCancelEditBtn" hidden>Cancel edit</button>
+          <button type="button" id="memoryLogoutBtn">Logout</button>
+<button type="button" id="importExistingMemoriesBtn">Import existing photos</button>
+          <p id="memoryUploadStatus" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+<div class="gallery" id="gallery">
     <div class="photo reveal memory-card" tabindex="0" role="button" aria-label="Tap to reveal this memory">
       <div class="memory-card-inner">
         <div class="memory-front"><img src="photos/1.jpg" alt="Darwin and Cassandra memory 1" loading="lazy"><div class="caption">01 — One to remember</div></div>
@@ -912,6 +1298,10 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
   <p class="lightbox-hint" id="lightboxHint">Tap the photo to reveal a message ♥</p>
+  <div class="lightbox-admin-actions" id="lightboxAdminActions" hidden>
+    <button type="button" id="lightboxEditMemory">Edit memory</button>
+    <button type="button" id="lightboxDeleteMemory">Delete memory</button>
+  </div>
 </div>
 <div class="cat-bubble" id="catBubble" role="status">pspsps… I have a very important reminder for you.<small>your tiny relationship supervisor</small></div>
 <button class="cat-companion" id="catCompanion" aria-label="Ask the cat for a message" title="Tap the cat">🐈‍⬛</button>
@@ -964,11 +1354,14 @@ const lightboxHint = $("lightboxHint");
 
 function closeMemoryViewer() {
   lightbox.classList.remove("show");
+  lightboxAdminActions.hidden = true;
+  window.currentViewedMemoryCard = null;
   lightboxStage.classList.remove("flipped");
   lightboxBack.innerHTML = "";
 }
 
 function openMemoryViewer(card) {
+  window.currentViewedMemoryCard = card;
   const photo = card.querySelector(".memory-front img, img");
   if (!photo) return;
 
@@ -994,6 +1387,7 @@ function openMemoryViewer(card) {
   lightboxStage.classList.remove("flipped");
   lightboxHint.textContent = "Tap the photo to reveal a message ♥";
   lightbox.classList.add("show");
+  updateLightboxAdminActions();
 }
 
 // Remove the duplicate fifth memory card
@@ -1008,6 +1402,40 @@ document.querySelectorAll(".memory-card").forEach(card => {
       openMemoryViewer(card);
     }
   });
+});
+
+// LIGHTBOX ADMIN ACTIONS
+const lightboxAdminActions = $("lightboxAdminActions");
+const lightboxEditMemory = $("lightboxEditMemory");
+const lightboxDeleteMemory = $("lightboxDeleteMemory");
+
+function updateLightboxAdminActions() {
+  const card = window.currentViewedMemoryCard;
+  const isAdmin = window.memoryAdminActive === true;
+  const hasSavedRecord = Boolean(card && card._memoryRecord);
+
+  if (lightboxAdminActions) {
+    lightboxAdminActions.hidden = !(isAdmin && hasSavedRecord);
+  }
+}
+
+lightboxEditMemory?.addEventListener("click", () => {
+  const card = window.currentViewedMemoryCard;
+  if (!window.memoryAdminActive || !card?._memoryRecord) return;
+
+  window.startMemoryEdit?.(card._memoryRecord);
+  closeMemoryViewer();
+});
+
+lightboxDeleteMemory?.addEventListener("click", async () => {
+  const card = window.currentViewedMemoryCard;
+  if (!window.memoryAdminActive || !card?._memoryRecord) return;
+
+  await window.deleteSavedMemory?.(card._memoryRecord, card);
+
+  if (!card.isConnected) {
+    closeMemoryViewer();
+  }
 });
 
 function flipZoomedMemory() {
@@ -1041,6 +1469,21 @@ function updateCounter(){
 }
 updateCounter();setInterval(updateCounter,1000);
 </script>
-<script src="music.js"></script>
+<script src="memories.js"></script>
+  <script src="music.js"></script>
+
+<div class="memory-dialog-overlay" id="memoryDialogOverlay" hidden>
+  <div class="memory-dialog" role="dialog" aria-modal="true" aria-labelledby="memoryDialogTitle">
+    <div class="memory-dialog-heart" id="memoryDialogIcon">♥</div>
+    <h3 id="memoryDialogTitle">Are you sure?</h3>
+    <p id="memoryDialogMessage"></p>
+    <div class="memory-dialog-actions">
+      <button type="button" id="memoryDialogCancel">Cancel</button>
+      <button type="button" id="memoryDialogConfirm">Confirm</button>
+    </div>
+  </div>
+</div>
+<div class="memory-toast" id="memoryToast" role="status" aria-live="polite"></div>
+
 </body>
 </html>

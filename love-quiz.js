@@ -168,7 +168,14 @@
       setTimeout(() => piece.remove(), 3500);
     }
 
-    $("unlockLove").addEventListener("click", () => {
+    $("unlockLove").addEventListener("click", async () => {
+      const button = $("unlockLove");
+      button.disabled = true;
+
+      if (window.fadeOutLoveMusic) {
+        await window.fadeOutLoveMusic();
+      }
+
       window.location.href = "intro.html";
     });
   }
